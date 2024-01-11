@@ -1,0 +1,9 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'ant_media_server'
+    metrics_path: /LiveApp/rest/prometheus-exporter/metrics
+    scheme: https
+    static_configs:
+      - targets: ['localhost:5443']
