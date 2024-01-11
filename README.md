@@ -1,7 +1,9 @@
-# Prometheus Exporter Plugin
+# Prometheus Exporter Plugin for Ant Media Server
 
 This plugin exposes Ant Media Server metrics in Prometheus format,
 allowing standard scraping of the data.
+
+This plugin requires Ant Media Server version 2.8.0.
 
 # Building and Installation
 
