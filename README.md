@@ -11,11 +11,11 @@ allowing standard scraping of the data.
 
 Copy the jar file to under the `plugins` folder of your Ant Media Server installation:
 
-   $ cp target/prometheus-exporter-plugin.jar /usr/local/antmedia/plugins
+    $ cp target/prometheus-exporter-plugin.jar /usr/local/antmedia/plugins
 
 Restart Ant Media Server to pick up the new plugin:
 
-   $ sudo systemctl restart antmedia.service
+    $ sudo systemctl restart antmedia.service
 
 Test the metrics endpoint:
 
