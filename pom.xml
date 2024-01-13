@@ -8,11 +8,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.antmedia.plugin</groupId>
 	<artifactId>prometheus-exporter</artifactId>
+	<version>1.0.1</version>
 	<packaging>jar</packaging>
 	<name>PrometheusExporterPlugin</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.javadoc.skip>true</maven.javadoc.skip>
+		<gpg.skip>true</gpg.skip>
 	</properties>
 	<developers>
     		<developer>
@@ -59,7 +62,7 @@
 		</repository>
 	</distributionManagement>
 	<build>
-		<finalName>prometheus-exporter</finalName>
+		<finalName>prometheus-exporter-${project.version}</finalName>
 		<testSourceDirectory>src/test/java</testSourceDirectory>
 		<plugins>
 			<plugin>
@@ -72,18 +75,6 @@
 					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
 					<autoReleaseAfterClose>true</autoReleaseAfterClose>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar-no-fork</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
