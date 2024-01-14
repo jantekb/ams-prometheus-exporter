@@ -24,8 +24,8 @@ public class PrometheusMetric {
 
     public String toString() {
         return String.format(
-                "HELP " + PREFIX + "%1$s %2$s\n" +
-                "TYPE " + PREFIX + "%1$s %3$s\n" +
+                "# HELP " + PREFIX + "%1$s %2$s\n" +
+                "# TYPE " + PREFIX + "%1$s %3$s\n" +
                 PREFIX + "%1$s %4$s",
                 name, // 1
                 help, // 2

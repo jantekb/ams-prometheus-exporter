@@ -8,8 +8,8 @@ public class PrometheusMetricTest extends TestCase {
     @Test
     public void testSimpleFormatting() {
         assertEquals(
-                "HELP antmediaserver_foo Number of foos\n" +
-                "TYPE antmediaserver_foo counter\n" +
+                "# HELP antmediaserver_foo Number of foos\n" +
+                "# TYPE antmediaserver_foo counter\n" +
                 "antmediaserver_foo 1",
 
                 PrometheusMetric.builder()
@@ -21,8 +21,8 @@ public class PrometheusMetricTest extends TestCase {
     @Test
     public void testDecimalsAndCounter() {
         assertEquals(
-                "HELP antmediaserver_foo Number of foos\n" +
-                        "TYPE antmediaserver_foo gauge\n" +
+                "# HELP antmediaserver_foo Number of foos\n" +
+                        "# TYPE antmediaserver_foo gauge\n" +
                         "antmediaserver_foo 3.1416",
 
                 PrometheusMetric.builder()
