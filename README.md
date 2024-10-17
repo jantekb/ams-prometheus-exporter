@@ -3,7 +3,8 @@
 This plugin exposes Ant Media Server metrics in Prometheus format,
 allowing standard scraping of the data.
 
-This plugin requires Ant Media Server version 2.8.0.
+This plugin requires at least Ant Media Server version 2.8.0, but is
+also compatible with other versions, has been tested with 2.11.3 too.
 
 # Building and Installation
 
@@ -49,6 +50,8 @@ A sample `prometheus.yml` file is included in this repository with minimal scrap
 |-----------------------------------------------|---------|------------------------------------------------------------------|
 | antmediaserver_hls_viewer_total               | gauge   | The number of HLS players                                        |
 | antmediaserver_dash_viewer_total              | gauge   | The number for DASH players                                      |
+| antmediaserver_webrtc_stream_total            | gauge   | The number live WebRTC streams                                   |
+| antmediaserver_webrtc_viewer_total            | gauge   | The number of WebRTC players                                     |
 | antmediaserver_active_broadcast_total         | gauge   | The number of ongoing live broadcasts                            |
 | antmediaserver_total_broadcast_total          | gauge   | The number of broadcasts, including the ones that are not active |
 | antmediaserver_cpu_usage_ratio                | gauge   | CPU usage                                                        |
@@ -64,3 +67,13 @@ A sample `prometheus.yml` file is included in this repository with minimal scrap
 | antmediaserver_gpu_1_memory_total_bytes       | gauge   | The 1st GPU total memory in bytes                                |
 | antmediaserver_gpu_1_memory_free_bytes        | gauge   | The 1st GPU free memory in bytes                                 |
 | antmediaserver_gpu_1_memory_used_bytes        | gauge   | The 1st GPU used memory in bytes                                 |
+
+# Changelog
+
+## 1.1.0 (2024-10-17)
+
+- Added metrics for WebRTC (`antmediaserver_webrtc_stream_total`, `antmediaserver_webrtc_viewer_total`)
+
+## 1.0.1 (2024-01-01)
+
+- Initial version

@@ -8,6 +8,7 @@ import io.antmedia.statistic.DashViewerStats;
 import io.antmedia.statistic.GPUUtils;
 import io.antmedia.statistic.HlsViewerStats;
 import io.antmedia.statistic.IStatsCollector;
+import io.antmedia.webrtc.api.IWebRTCAdaptor;
 import jakarta.servlet.ServletContext;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -49,7 +50,7 @@ public class PrometheusExporterRestService {
 	@Path("/version")
 	@Produces("text/plain")
 	public String getVersion() {
-		return "1.0.1";
+		return "1.1.0";
 	}
 
 	@GET
@@ -79,6 +80,14 @@ public class PrometheusExporterRestService {
 			totalDASHViewer = dashViewerStats.getTotalViewerCount();
 			metrics.add(PrometheusMetric.builder().name("dash_viewer_total")
 					.help("The number for DASH players").value(totalDASHViewer).build());
+		}
+
+		if (appCtx.containsBean(IWebRTCAdaptor.BEAN_NAME)) {
+			IWebRTCAdaptor web = appCtx.getBean(IWebRTCAdaptor.BEAN_NAME, IWebRTCAdaptor.class);
+			metrics.add(PrometheusMetric.builder().name("webrtc_stream_total")
+					.help("The number live WebRTC streams").value(web.getNumberOfLiveStreams()).build());
+			metrics.add(PrometheusMetric.builder().name("webrtc_viewer_total")
+					.help("The number of WebRTC players").value(web.getNumberOfTotalViewers()).build());
 		}
 
 		metrics.add(PrometheusMetric.builder().name("active_broadcast_total")
